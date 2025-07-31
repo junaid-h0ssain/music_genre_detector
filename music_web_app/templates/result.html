@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h3 class="card-title mb-0">
+                    <i class="fas fa-check-circle"></i> Classification Result
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <h4><strong>File:</strong> {{ filename }}</h4>
+                    <h5><strong>Model Used:</strong> {{ model_used.title() }}</h5>
+                </div>
+
+                <div class="genre-card text-center">
+                    <h2><i class="fas fa-music"></i> Predicted Genre</h2>
+                    <h1 class="display-4">{{ prediction.title() }}</h1>
+                </div>
+
+                <div class="mt-4">
+                    <h5>Confidence Scores:</h5>
+                    {% for genre, score in confidence_scores %}
+                    <div class="mb-2">
+                        <div class="d-flex justify-content-between">
+                            <span><strong>{{ genre.title() }}</strong></span>
+                            <span>{{ "%.2f"|format(score * 100) }}%</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
