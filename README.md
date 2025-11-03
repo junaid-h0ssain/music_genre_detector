@@ -2,6 +2,9 @@
 
 A small Flask web app and model ensemble for predicting the genre of a music/audio file using audio feature extraction (via librosa) and scikit-learn classifiers.
 
+## Dataset
+Uses the [GTZAN Dataset](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
+
 
 ## Features
 
@@ -68,15 +71,4 @@ Successful response JSON example:
 
 The web UI also allows selecting which model to use (if available): `rf`, `gb`, `svm`, `lr`, or `ensemble`.
 
-## Dataset
-Uses the [GTZAN Dataset](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
 
-## Models
-
-Pre-trained models are stored in `models/` as joblib files. The Flask app attempts to load the following files at startup:
-
-- `models/rf_clf.joblib`
-- `models/gb_clf.joblib`
-- `models/svm_clf.joblib`
-- `models/lr_clf.joblib`
-- `models/ensemble_clf.joblib`
